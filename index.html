@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMIT Luxury Barber & Salon | Premium Grooming Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['Cinzel', 'serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          },
+          colors: {
+            gold: {
+              400: '#F5D061',
+              500: '#E5B83B',
+              600: '#C69B23',
+              700: '#947214'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Theme definitions */
+    :root {
+      --primary: #E5B83B;
+      --primary-light: #F5D061;
+      --primary-dark: #C69B23;
+      --bg-dark: #0a0b0d;
+      --bg-surface: #13151a;
+      --bg-card: #181b22;
+      --border-color: rgba(229, 184, 59, 0.25);
+      --accent-glow: rgba(229, 184, 59, 0.15);
+      --text-main: #f3f4f6;
+    }
+
+    body.theme-cyber {
+      --primary: #06b6d4;
+      --primary-light: #22d3ee;
+      --primary-dark: #0891b2;
+      --bg-dark: #030712;
+      --bg-surface: #0f172a;
+      --bg-card: #1e293b;
+      --border-color: rgba(6, 182, 212, 0.35);
+      --accent-glow: rgba(6, 182, 212, 0.18);
+      --text-main: #f8fafc;
+    }
+
+    body.theme-spa {
+      --primary: #10b981;
+      --primary-light: #34d399;
+      --primary-dark: #059669;
+      --bg-dark: #121816;
+      --bg-surface: #1a2421;
+      --bg-card: #24322d;
+      --border-color: rgba(16, 185, 129, 0.3);
+      --accent-glow: rgba(16, 185, 129, 0.15);
+      --text-main: #f0fdf4;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .themed-surface { background-color: var(--bg-surface); }
+    .themed-card { background-color: var(--bg-card); border-color: var(--border-color); }
+    .themed-primary-text { color: var(--primary); }
+    .themed-primary-bg { background-color: var(--primary); }
+    .themed-border { border-color: var(--border-color); }
+    .themed-glow { box-shadow: 0 0 25px var(--accent-glow); }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP BAR: DEVELOPER CONTACT & WORKING HOURS -->
+  <header class="bg-black/90 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14">
+        <!-- Brand Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl flex items-center justify-center themed-primary-bg text-black font-extrabold text-lg shadow-md">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <span class="font-display font-bold text-lg sm:text-xl tracking-wider text-white">AMIT <span class="themed-primary-text">SALON</span></span>
+            <span class="hidden sm:inline-block text-[10px] uppercase font-mono px-2 py-0.5 ml-2 rounded bg-white/10 text-zinc-300">Luxury Barber Lounge</span>
+          </div>
+        </div>
+
+        <!-- Working Hours & Dev Quick Info -->
+        <div class="hidden md:flex items-center gap-6 text-xs text-zinc-400">
+          <div class="flex items-center gap-2">
+            <i class="fa-regular fa-clock themed-primary-text"></i>
+            <span>09:00 AM – 10:00 PM (Daily)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-red-400"></i>
+            <span>Main Market, City Center</span>
+          </div>
+          <div class="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-zinc-200">Dev: <strong class="text-white">Amit</strong></span>
+            <a href="tel:8930440260" class="themed-primary-text font-mono hover:underline font-semibold">📞 8930440260</a>
+          </div>
+        </div>
+
+        <!-- Quick Actions & Theme Switcher -->
+        <div class="flex items-center gap-3">
+          <!-- Live Theme Selector -->
+          <div class="flex items-center bg-white/5 p-1 rounded-xl border border-white/10 text-xs">
+            <button onclick="setGlobalTheme('royal')" id="theme-btn-royal" title="Royal Gold Vintage" class="px-2.5 py-1 rounded-lg font-medium transition text-amber-400 bg-amber-400/20 border border-amber-400/40">
+              👑 <span class="hidden sm:inline">Royal</span>
+            </button>
+            <button onclick="setGlobalTheme('cyber')" id="theme-btn-cyber" title="Cyber Neon Modern" class="px-2.5 py-1 rounded-lg font-medium transition text-zinc-400 hover:text-cyan-300">
+              ⚡ <span class="hidden sm:inline">Cyber</span>
+            </button>
+            <button onclick="setGlobalTheme('spa')" id="theme-btn-spa" title="Scandinavian Clean Spa" class="px-2.5 py-1 rounded-lg font-medium transition text-zinc-400 hover:text-emerald-300">
+              🌿 <span class="hidden sm:inline">Spa</span>
+            </button>
+          </div>
+
+          <!-- Book Now Button in Header -->
+          <button onclick="openBookingModal()" class="themed-primary-bg hover:opacity-90 text-black font-bold px-4 py-2 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-lg">
+            <i class="fa-solid fa-calendar-check"></i>
+            <span>Book Chair</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden py-16 sm:py-24 border-b themed-border">
+    <!-- Ambient glow -->
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full blur-3xl opacity-20 themed-primary-bg pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Text Left -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border themed-border text-xs">
+            <span class="text-amber-400">★ ★ ★ ★ ★</span>
+            <span class="font-medium text-zinc-300">Rated 4.9/5 by 380+ Gentlemen</span>
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
+            Precision Haircut, <br>
+            <span class="themed-primary-text">Beard Smoothing</span> & Keratin
+          </h1>
+
+          <p class="text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+            Welcome to Amit Barber & Grooming Lounge. Experience signature razor fades, luxury beard spa therapies, and advanced protein keratin treatments. Book online, get your exact arrival time, and pay via UPI, Card, or Cash.
+          </p>
+
+          <!-- Highlights Row -->
+          <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+            <div class="themed-card border rounded-xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-bold themed-primary-text font-mono">100%</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Zero Wait Buffer</div>
+            </div>
+            <div class="themed-card border rounded-xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-bold themed-primary-text font-mono">All UPI</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Online & Cash</div>
+            </div>
+            <div class="themed-card border rounded-xl p-3 text-center">
+              <div class="text-xl sm:text-2xl font-bold themed-primary-text font-mono">4.9 ★</div>
+              <div class="text-[11px] text-zinc-400 mt-0.5">Verified Reviews</div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <button onclick="openBookingModal()" class="themed-primary-bg hover:opacity-90 text-black font-extrabold px-7 py-3.5 rounded-xl text-sm sm:text-base transition flex items-center gap-3 shadow-xl">
+              <i class="fa-solid fa-calendar-plus text-lg"></i>
+              <span>Book Appointment Now</span>
+            </button>
+            <a href="#services" class="bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3.5 rounded-xl text-sm sm:text-base transition border border-white/10 flex items-center gap-2">
+              <i class="fa-solid fa-list-check themed-primary-text"></i>
+              <span>View All Services & Prices</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Interactive Quick Reservation Card -->
+        <div class="lg:col-span-5">
+          <div class="themed-card border rounded-2xl p-6 shadow-2xl relative overflow-hidden themed-glow">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+              <div>
+                <h3 class="font-bold text-lg text-white">Instant Chair Booking</h3>
+                <p class="text-xs text-zinc-400">Select service, choose slot, get instant pass</p>
+              </div>
+              <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+            </div>
+
+            <!-- Quick Selector Form -->
+            <div class="space-y-4 text-xs">
+              <div>
+                <label class="block text-zinc-300 font-semibold mb-1.5">1. Popular Services (Click to Add)</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <button type="button" onclick="toggleHeroService('haircut', 250, 'Haircut & Styling', this)" class="quick-service-btn p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-left transition flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white text-[11px]">✂️ Hair Cut</div>
+                      <div class="text-[10px] text-zinc-400">30 Mins</div>
+                    </div>
+                    <span class="font-mono font-bold text-amber-400">₹250</span>
+                  </button>
+
+                  <button type="button" onclick="toggleHeroService('beard', 180, 'Beard Smoothing', this)" class="quick-service-btn p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-left transition flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white text-[11px]">🧔 Beard Smooth</div>
+                      <div class="text-[10px] text-zinc-400">20 Mins</div>
+                    </div>
+                    <span class="font-mono font-bold text-amber-400">₹180</span>
+                  </button>
+
+                  <button type="button" onclick="toggleHeroService('keratin', 1499, 'Keratin Therapy', this)" class="quick-service-btn p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-left transition flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white text-[11px]">✨ Keratin Smooth</div>
+                      <div class="text-[10px] text-zinc-400">75 Mins</div>
+                    </div>
+                    <span class="font-mono font-bold text-amber-400">₹1499</span>
+                  </button>
+
+                  <button type="button" onclick="toggleHeroService('spa', 699, 'Hair Spa', this)" class="quick-service-btn p-2.5 rounded-xl bg-white/5 border border-white/10 hover:border-amber-400 text-left transition flex justify-between items-center">
+                    <div>
+                      <div class="font-bold text-white text-[11px]">💆 Hair Spa</div>
+                      <div class="text-[10px] text-zinc-400">40 Mins</div>
+                    </div>
+                    <span class="font-mono font-bold text-amber-400">₹699</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Selected Time Details Info Box -->
+              <div class="p-3 rounded-xl bg-white/5 border border-white/10 space-y-1.5">
+                <div class="flex items-center justify-between text-zinc-300">
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-400"></i> Next Slot Available:</span>
+                  <span class="font-bold font-mono text-white text-xs">Today, 11:30 AM</span>
+                </div>
+                <div class="text-[11px] text-amber-300/90 bg-amber-500/10 p-2 rounded-lg border border-amber-500/20">
+                  ⚡ <strong>Time details for coming:</strong> Report at salon by <strong>11:20 AM</strong> (10 mins buffer). Total service time reserved: <span id="quick-duration">30</span> mins.
+                </div>
+              </div>
+
+              <!-- Customer info preview -->
+              <div class="p-2.5 rounded-xl bg-black/40 border border-white/5 space-y-1 text-[11px]">
+                <div class="flex justify-between text-zinc-400">
+                  <span>Customer Example:</span>
+                  <span class="font-semibold text-white">Amit (8930440260)</span>
+                </div>
+                <div class="flex justify-between text-zinc-400">
+                  <span>Payment Options:</span>
+                  <span class="text-emerald-400 font-medium">Online (UPI/Cards) + Cash Offline</span>
+                </div>
+              </div>
+
+              <button onclick="startBookingWithSelected()" class="w-full py-3 rounded-xl themed-primary-bg text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition flex items-center justify-center gap-2 shadow-lg">
+                <span>Proceed to Reserve Slot</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES MENU SECTION -->
+  <section id="services" class="py-16 themed-surface border-b themed-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <span class="text-xs uppercase font-mono tracking-widest themed-primary-text font-bold">Comprehensive Grooming Catalog</span>
+        <h2 class="font-display text-2xl sm:text-4xl font-extrabold text-white">Our Services & Price Menu</h2>
+        <p class="text-zinc-400 text-sm">Choose from master haircuts, beard sculpting, keratin treatments, and revitalizing face spas.</p>
+      </div>
+
+      <!-- Service Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <button onclick="filterServices('all')" class="service-tab-btn active px-4 py-2 rounded-xl text-xs font-semibold bg-white/10 text-white border border-white/20 transition">All Services</button>
+        <button onclick="filterServices('hair')" class="service-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white border border-transparent transition">Hair Cut & Styling</button>
+        <button onclick="filterServices('beard')" class="service-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white border border-transparent transition">Beard & Smoothning</button>
+        <button onclick="filterServices('keratin')" class="service-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white border border-transparent transition">Keratin & Spa</button>
+        <button onclick="filterServices('facial')" class="service-tab-btn px-4 py-2 rounded-xl text-xs font-semibold bg-white/5 text-zinc-400 hover:text-white border border-transparent transition">Facial & D-Tan</button>
+      </div>
+
+      <!-- Services Cards Grid -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW BOOKING WORKS & TIME DETAILS EXPLANATION -->
+  <section class="py-16 border-b themed-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="font-display text-2xl sm:text-3xl font-bold text-white">Guaranteed Zero Waiting Policy</h2>
+        <p class="text-zinc-400 text-sm mt-2">When you book at Amit Salon, your barber chair and exact reporting time are locked in.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="themed-card border rounded-2xl p-5 text-center relative space-y-3">
+          <div class="w-12 h-12 rounded-2xl mx-auto flex items-center justify-center themed-primary-bg text-black font-bold text-lg">1</div>
+          <h3 class="font-bold text-white text-base">Select Treatment</h3>
+          <p class="text-xs text-zinc-400">Pick haircut, beard smoothing, keratin, or multi-combo packages with transparent pricing.</p>
+        </div>
+
+        <div class="themed-card border rounded-2xl p-5 text-center relative space-y-3">
+          <div class="w-12 h-12 rounded-2xl mx-auto flex items-center justify-center themed-primary-bg text-black font-bold text-lg">2</div>
+          <h3 class="font-bold text-white text-base">Pick Exact Time Slot</h3>
+          <p class="text-xs text-zinc-400">Live calendar shows available morning, afternoon, or evening slots. 10-minute arrival details provided.</p>
+        </div>
+
+        <div class="themed-card border rounded-2xl p-5 text-center relative space-y-3">
+          <div class="w-12 h-12 rounded-2xl mx-auto flex items-center justify-center themed-primary-bg text-black font-bold text-lg">3</div>
+          <h3 class="font-bold text-white text-base">Customer Details</h3>
+          <p class="text-xs text-zinc-400">Enter name, phone number, and styling preferences (Example: Amit, 8930440260).</p>
+        </div>
+
+        <div class="themed-card border rounded-2xl p-5 text-center relative space-y-3">
+          <div class="w-12 h-12 rounded-2xl mx-auto flex items-center justify-center themed-primary-bg text-black font-bold text-lg">4</div>
+          <h3 class="font-bold text-white text-base">Online or Cash Pay</h3>
+          <p class="text-xs text-zinc-400">Pay immediately via UPI/Cards on all platforms, or opt for Cash Pay at Salon after your haircut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATING & REVIEW SYSTEM -->
+  <section id="reviews" class="py-16 themed-surface border-b themed-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Rating Summary Box (4 cols) -->
+        <div class="lg:col-span-4 themed-card border rounded-2xl p-6 space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-white/10">
+            <h3 class="font-display font-bold text-lg text-white">Customer Feedback</h3>
+            <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-circle-check"></i> 100% Genuine</span>
+          </div>
+
+          <div class="text-center py-2">
+            <div class="text-5xl font-black font-mono themed-primary-text" id="display-avg-rating">4.9</div>
+            <div class="text-amber-400 text-lg my-1">★ ★ ★ ★ ★</div>
+            <p class="text-xs text-zinc-400">Based on <span id="display-review-count" class="font-bold text-white">384</span> salon customer reviews</p>
+          </div>
+
+          <!-- Rating distribution bars -->
+          <div class="space-y-2 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-12 text-zinc-400">5 Star</span>
+              <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-400 rounded-full" style="width: 92%"></div>
+              </div>
+              <span class="w-8 text-right font-mono text-zinc-300">92%</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-12 text-zinc-400">4 Star</span>
+              <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-400 rounded-full" style="width: 6%"></div>
+              </div>
+              <span class="w-8 text-right font-mono text-zinc-300">6%</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-12 text-zinc-400">3 Star</span>
+              <div class="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-400 rounded-full" style="width: 2%"></div>
+              </div>
+              <span class="w-8 text-right font-mono text-zinc-300">2%</span>
+            </div>
+          </div>
+
+          <button onclick="openReviewModal()" class="w-full py-3 rounded-xl border themed-border hover:bg-white/5 text-white font-bold text-xs transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-pen-to-square themed-primary-text"></i>
+            <span>Write a Salon Review</span>
+          </button>
+        </div>
+
+        <!-- Reviews List (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex items-center justify-between pb-2">
+            <h3 class="font-bold text-white text-base">Recent Verified Client Reviews</h3>
+            <span class="text-xs text-zinc-400 font-mono">Showing Latest</span>
+          </div>
+
+          <div id="reviews-list-container" class="space-y-3.5">
+            <!-- Dynamically populated reviews -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPER DETAILS & SALON FOOTER -->
+  <footer class="bg-black text-zinc-400 text-xs border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Col 1: Salon info -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 font-display text-white font-bold text-base">
+            <i class="fa-solid fa-scissors themed-primary-text"></i>
+            <span>AMIT LUXURY SALON</span>
+          </div>
+          <p class="text-zinc-400 leading-relaxed">
+            The premier men's and unisex salon destination. Specializing in bespoke hair styling, beard smoothing, keratin therapy, and royal treatment.
+          </p>
+        </div>
+
+        <!-- Col 2: Services Quick Links -->
+        <div class="space-y-2">
+          <h4 class="text-white font-bold text-sm">Key Treatments</h4>
+          <ul class="space-y-1.5">
+            <li><a href="#services" class="hover:text-white transition">✂️ Signature Hair Cut (Fade/Scissor)</a></li>
+            <li><a href="#services" class="hover:text-white transition">🧔 Beard Smoothing & Lineup</a></li>
+            <li><a href="#services" class="hover:text-white transition">✨ Keratin Protein Straightening</a></li>
+            <li><a href="#services" class="hover:text-white transition">💆 Deep Conditioning Hair Spa</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Shop Timing & Address -->
+        <div class="space-y-2">
+          <h4 class="text-white font-bold text-sm">Shop Timing & Address</h4>
+          <p class="text-zinc-300">📍 Shop No. 12, Main Market Road, City Center</p>
+          <p class="text-zinc-300">⏰ Monday – Sunday: 09:00 AM – 10:00 PM</p>
+          <p class="text-amber-400 font-mono">⚡ Zero wait on online bookings</p>
+        </div>
+
+        <!-- Col 4: DEVELOPER DETAILS -->
+        <div class="themed-card border rounded-2xl p-4 space-y-2 border-amber-500/30 bg-white/5">
+          <span class="text-[10px] uppercase font-mono tracking-wider font-bold text-amber-400">Developer Profile</span>
+          <h4 class="text-white font-extrabold text-base">Designed & Developed by Amit</h4>
+          <p class="text-zinc-300">For salon software, website customization, or business enquiries:</p>
+          <div class="pt-1 space-y-1">
+            <a href="tel:8930440260" class="flex items-center gap-2 text-white font-mono font-bold hover:text-amber-400 transition">
+              <i class="fa-solid fa-phone text-emerald-400"></i>
+              <span>+91 8930440260</span>
+            </a>
+            <a href="https://wa.me/918930440260" target="_blank" class="flex items-center gap-2 text-emerald-400 hover:underline">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-zinc-500 text-[11px] gap-3">
+        <div>© 2026 Amit Luxury Barber & Salon. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <span>Lead Developer: <strong class="text-white">Amit (8930440260)</strong></span>
+          <span class="text-white/20">|</span>
+          <button onclick="openBookingModal()" class="themed-primary-text hover:underline font-bold">Book Chair</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== BOOKING MODAL (MULTI-STEP) ==================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="themed-card border rounded-2xl max-w-2xl w-full p-5 sm:p-7 shadow-2xl relative my-8 max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-zinc-300 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="border-b border-white/10 pb-4 mb-5">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold themed-primary-bg text-black uppercase">Step <span id="current-step-num">1</span> of 4</span>
+          <h3 class="font-display font-bold text-lg sm:text-xl text-white" id="step-title">Choose Your Treatments</h3>
+        </div>
+        <p class="text-xs text-zinc-400 mt-1" id="step-desc">Select one or more services to calculate total time and price.</p>
+      </div>
+
+      <!-- STEP 1: SERVICE SELECTION -->
+      <div id="step-1-services" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-72 overflow-y-auto pr-1" id="modal-service-picker">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Selected services subtotal bar -->
+        <div class="p-3.5 rounded-xl bg-black/40 border border-white/10 flex items-center justify-between text-xs">
+          <div>
+            <span class="text-zinc-400">Selected: <strong class="text-white" id="modal-selected-count">0 services</strong></span>
+            <div class="text-[11px] text-amber-400 font-mono mt-0.5">Estimated Duration: <span id="modal-total-duration">0</span> mins</div>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] text-zinc-400 uppercase">Subtotal</span>
+            <div class="text-lg font-bold font-mono themed-primary-text">₹<span id="modal-total-price">0</span></div>
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button onclick="goToStep(2)" id="btn-to-step-2" disabled class="px-6 py-2.5 rounded-xl themed-primary-bg text-black font-bold text-xs uppercase tracking-wider disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-95 transition flex items-center gap-2">
+            <span>Next: Select Slot & Arrival Time</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: DATE & TIME SLOT + ARRIVAL TIME INSTRUCTIONS -->
+      <div id="step-2-time" class="space-y-5 hidden">
+        <div>
+          <label class="block text-xs font-semibold text-zinc-300 mb-2">1. Choose Appointment Date</label>
+          <div class="grid grid-cols-3 gap-2" id="date-buttons-container">
+            <!-- Dynamically populated dates: Today, Tomorrow, Day After -->
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-zinc-300 mb-2">2. Choose Preferred Stylist</label>
+          <div class="grid grid-cols-3 gap-2 text-xs">
+            <button type="button" onclick="selectStylist('Amit (Master Stylist)', this)" class="stylist-btn p-2 rounded-xl bg-white/5 border border-amber-500/50 text-white text-center transition">
+              <div class="font-bold text-amber-400">Amit 👑</div>
+              <div class="text-[10px] text-zinc-400">Master Barber</div>
+            </button>
+            <button type="button" onclick="selectStylist('Rahul (Keratin Expert)', this)" class="stylist-btn p-2 rounded-xl bg-white/5 border border-white/10 text-white text-center transition">
+              <div class="font-bold">Rahul ✨</div>
+              <div class="text-[10px] text-zinc-400">Keratin Specialist</div>
+            </button>
+            <button type="button" onclick="selectStylist('Vicky (Beard Artisan)', this)" class="stylist-btn p-2 rounded-xl bg-white/5 border border-white/10 text-white text-center transition">
+              <div class="font-bold">Vicky 🧔</div>
+              <div class="text-[10px] text-zinc-400">Beard Artisan</div>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-zinc-300 mb-2">3. Available Salon Time Slots</label>
+          <div class="grid grid-cols-4 gap-2 text-xs font-mono" id="time-slots-container">
+            <!-- Slot pills -->
+          </div>
+        </div>
+
+        <!-- SPECIAL REPORTING TIME NOTICE -->
+        <div id="arrival-notice-box" class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1.5">
+          <div class="flex items-center gap-2 text-amber-300 font-bold">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Shop Arrival & Time Details:</span>
+          </div>
+          <p class="text-zinc-200 text-[11px] leading-relaxed">
+            Please arrive at the salon <strong>10 minutes before</strong> your chosen time slot.
+            <span class="block mt-1 text-white font-mono" id="arrival-details-readout">Example: For an 11:00 AM slot, arrive by <strong>10:50 AM</strong>. Your chair is strictly reserved for you.</span>
+          </p>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="goToStep(1)" class="px-4 py-2 rounded-xl bg-white/10 text-zinc-300 text-xs font-semibold hover:bg-white/15">
+            ← Back
+          </button>
+          <button onclick="goToStep(3)" class="px-6 py-2.5 rounded-xl themed-primary-bg text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 transition flex items-center gap-2">
+            <span>Next: Customer Details</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: CUSTOMER DETAILS FORM -->
+      <div id="step-3-customer" class="space-y-4 hidden">
+        <div class="bg-white/5 p-3 rounded-xl border border-white/10 text-xs text-zinc-300">
+          💡 Default customer details pre-filled for your quick testing. You can edit any field.
+        </div>
+
+        <form id="customer-form" onsubmit="event.preventDefault(); goToStep(4);" class="space-y-3.5 text-xs">
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Customer Full Name *</label>
+            <input type="text" id="cust-name" value="Amit" required placeholder="Enter customer name" class="w-full bg-black/50 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-400">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-zinc-300 font-semibold mb-1">Mobile Phone Number *</label>
+              <input type="tel" id="cust-phone" value="8930440260" required placeholder="10-digit mobile" class="w-full bg-black/50 border border-white/10 rounded-xl px-3.5 py-2.5 text-white font-mono focus:outline-none focus:border-amber-400">
+              <span class="text-[10px] text-zinc-400">SMS & WhatsApp confirmation will be sent here.</span>
+            </div>
+            <div>
+              <label class="block text-zinc-300 font-semibold mb-1">Email Address</label>
+              <input type="email" id="cust-email" value="amit.barber@example.com" placeholder="email@domain.com" class="w-full bg-black/50 border border-white/10 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-400">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-zinc-300 font-semibold mb-1">Special Styling Instructions / Hair Type</label>
+            <textarea id="cust-notes" rows="2" placeholder="e.g. Medium low skin fade, soft beard oil, sensitive scalp" class="w-full bg-black/50 border border-white/10 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-400">Medium low fade on sides, beard smoothed with organic balm</textarea>
+          </div>
+
+          <div class="flex justify-between items-center pt-2">
+            <button type="button" onclick="goToStep(2)" class="px-4 py-2 rounded-xl bg-white/10 text-zinc-300 text-xs font-semibold hover:bg-white/15">
+              ← Back
+            </button>
+            <button type="submit" class="px-6 py-2.5 rounded-xl themed-primary-bg text-black font-bold text-xs uppercase tracking-wider hover:opacity-95 transition flex items-center gap-2">
+              <span>Next: Payment Selection</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 4: PAYMENT OPTIONS (ONLINE & OFFLINE) -->
+      <div id="step-4-payment" class="space-y-5 hidden">
+        <!-- Booking Recap -->
+        <div class="p-3.5 rounded-xl bg-black/50 border border-white/10 text-xs space-y-1.5">
+          <div class="flex justify-between text-zinc-300">
+            <span>Customer: <strong class="text-white" id="recap-name">Amit</strong> (<span id="recap-phone">8930440260</span>)</span>
+            <span class="font-bold text-white font-mono" id="recap-slot">Today, 11:00 AM</span>
+          </div>
+          <div class="flex justify-between text-zinc-400 text-[11px]">
+            <span>Selected: <span id="recap-services">Haircut + Beard</span></span>
+            <span class="font-mono text-base font-extrabold themed-primary-text">Total: ₹<span id="recap-total">430</span></span>
+          </div>
+        </div>
+
+        <!-- PAYMENT METHOD TABS -->
+        <div>
+          <label class="block text-xs font-semibold text-zinc-300 mb-2">Select Payment Method</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" onclick="selectPaymentMethod('online')" id="pay-tab-online" class="p-3 rounded-xl border border-amber-500/60 bg-amber-500/10 text-left transition flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg themed-primary-bg text-black flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <div class="font-bold text-white text-xs">Online Payment</div>
+                <div class="text-[10px] text-zinc-400">UPI, QR Code, Cards, NetBanking</div>
+                <span class="inline-block mt-1 text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded font-semibold">All Platforms</span>
+              </div>
+            </button>
+
+            <button type="button" onclick="selectPaymentMethod('offline')" id="pay-tab-offline" class="p-3 rounded-xl border border-white/10 bg-white/5 text-left transition flex items-start gap-3">
+              <div class="w-8 h-8 rounded-lg bg-white/10 text-white flex items-center justify-center font-bold text-sm">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+              </div>
+              <div>
+                <div class="font-bold text-white text-xs">Offline Payment</div>
+                <div class="text-[10px] text-zinc-400">Pay Cash at Salon on Arrival</div>
+                <span class="inline-block mt-1 text-[9px] bg-blue-500/20 text-blue-300 px-1.5 py-0.5 rounded font-semibold">Zero Advance</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- ONLINE PAYMENT PLATFORMS ACCORDION -->
+        <div id="online-platforms-container" class="space-y-3 p-4 rounded-xl bg-white/5 border border-white/10 text-xs">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="font-bold text-white">Choose Online Platform:</span>
+            <span class="text-[10px] text-zinc-400">Secure 256-Bit Encrypted</span>
+          </div>
+
+          <!-- Sub-tabs for Online -->
+          <div class="flex gap-2">
+            <button onclick="setOnlineSubtab('upi')" id="subtab-upi" class="px-3 py-1.5 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[11px] font-semibold">UPI & QR</button>
+            <button onclick="setOnlineSubtab('card')" id="subtab-card" class="px-3 py-1.5 rounded-lg bg-white/5 text-zinc-400 text-[11px] font-semibold hover:text-white">Debit/Credit Card</button>
+            <button onclick="setOnlineSubtab('net')" id="subtab-net" class="px-3 py-1.5 rounded-lg bg-white/5 text-zinc-400 text-[11px] font-semibold hover:text-white">NetBanking</button>
+          </div>
+
+          <!-- UPI Panel -->
+          <div id="panel-upi" class="space-y-3 pt-2">
+            <div class="flex flex-col sm:flex-row items-center gap-4 bg-black/40 p-3 rounded-xl border border-white/5">
+              <div id="qrcode" class="p-2 bg-white rounded-lg w-28 h-28 flex items-center justify-center"></div>
+              <div class="space-y-1.5 text-center sm:text-left flex-1">
+                <div class="font-bold text-white text-xs">Scan & Pay via any UPI App</div>
+                <p class="text-[11px] text-zinc-400">Google Pay, PhonePe, Paytm, BHIM, Cred, Amazon Pay</p>
+                <div class="inline-flex items-center gap-2 bg-white/5 px-2.5 py-1 rounded text-[11px] font-mono text-amber-300 border border-white/10">
+                  <span>UPI ID: <strong>8930440260@upi</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instant UPI App Quick Buttons -->
+            <div class="grid grid-cols-3 gap-2 text-center text-[10px]">
+              <button onclick="simulateOnlineApp('Google Pay')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-blue-400">
+                GPay
+              </button>
+              <button onclick="simulateOnlineApp('PhonePe')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-purple-400">
+                PhonePe
+              </button>
+              <button onclick="simulateOnlineApp('Paytm')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 font-bold text-cyan-400">
+                Paytm
+              </button>
+            </div>
+          </div>
+
+          <!-- Card Panel -->
+          <div id="panel-card" class="space-y-2.5 hidden pt-2 text-[11px]">
+            <input type="text" placeholder="Card Number (4444 5555 6666 7777)" value="4532 •••• •••• 8930" class="w-full bg-black/50 border border-white/10 rounded-lg p-2 text-white font-mono">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" placeholder="MM/YY" value="08/29" class="bg-black/50 border border-white/10 rounded-lg p-2 text-white font-mono">
+              <input type="password" placeholder="CVV" value="893" class="bg-black/50 border border-white/10 rounded-lg p-2 text-white font-mono">
+            </div>
+            <p class="text-[10px] text-zinc-400">Accepted: Visa, MasterCard, RuPay, Maestro</p>
+          </div>
+
+          <!-- NetBanking Panel -->
+          <div id="panel-net" class="space-y-2 hidden pt-2 text-[11px]">
+            <select class="w-full bg-black/50 border border-white/10 rounded-lg p-2 text-white">
+              <option>HDFC Bank</option>
+              <option>State Bank of India (SBI)</option>
+              <option>ICICI Bank</option>
+              <option>Axis Bank</option>
+              <option>Kotak Mahindra Bank</option>
+              <option>Punjab National Bank</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- OFFLINE PAYMENT NOTICE (when selected) -->
+        <div id="offline-details-container" class="hidden p-4 rounded-xl bg-blue-500/10 border border-blue-500/30 text-xs space-y-1.5">
+          <div class="flex items-center gap-2 text-blue-300 font-bold">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Pay on Arrival Selected</span>
+          </div>
+          <p class="text-zinc-200 text-[11px] leading-relaxed">
+            No advance payment required. Please pay the total amount (<strong>₹<span id="offline-total-display">430</span></strong>) directly at the salon counter in cash or UPI after your service is completed.
+          </p>
+        </div>
+
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="goToStep(3)" class="px-4 py-2 rounded-xl bg-white/10 text-zinc-300 text-xs font-semibold hover:bg-white/15">
+            ← Back
+          </button>
+          <button onclick="confirmAndFinalizeBooking()" class="px-7 py-3 rounded-xl themed-primary-bg text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition flex items-center gap-2 shadow-xl">
+            <i class="fa-solid fa-check-double text-sm"></i>
+            <span id="finalize-btn-text">Pay & Confirm Booking</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 5: BOOKING SUCCESS TICKET / APPOINTMENT PASS -->
+      <div id="step-5-pass" class="space-y-5 hidden text-center">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-2xl flex items-center justify-center mx-auto animate-bounce">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div>
+          <span class="text-xs font-mono uppercase font-bold text-emerald-400 tracking-wider">Reservation Confirmed!</span>
+          <h3 class="font-display font-bold text-2xl text-white mt-1">Amit Salon Appointment Ticket</h3>
+          <p class="text-xs text-zinc-400">A digital pass has been generated. Please show this at the salon counter.</p>
+        </div>
+
+        <!-- DIGITAL APPOINTMENT PASS CARD -->
+        <div class="themed-card border border-amber-500/40 rounded-2xl p-5 text-left space-y-4 bg-gradient-to-b from-white/5 to-black/60 shadow-xl relative overflow-hidden">
+          <div class="flex justify-between items-start border-b border-white/10 pb-3">
+            <div>
+              <div class="text-[10px] text-zinc-400 font-mono">BOOKING ID</div>
+              <div class="font-mono font-extrabold text-amber-400 text-base" id="pass-id">#AMIT-8930</div>
+            </div>
+            <div class="text-right">
+              <span id="pass-payment-status" class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">ONLINE PAID</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div>
+              <span class="text-zinc-400 block text-[10px]">CLIENT NAME:</span>
+              <strong class="text-white text-sm" id="pass-name">Amit</strong>
+            </div>
+            <div>
+              <span class="text-zinc-400 block text-[10px]">MOBILE NUMBER:</span>
+              <strong class="text-white font-mono text-sm" id="pass-phone">8930440260</strong>
+            </div>
+          </div>
+
+          <!-- TIME DETAILS HIGHLIGHT -->
+          <div class="p-3 rounded-xl bg-amber-500/15 border border-amber-500/30 text-xs">
+            <div class="flex items-center gap-1.5 font-bold text-amber-300">
+              <i class="fa-regular fa-clock"></i>
+              <span>TIME DETAILS FOR COMING TO SHOP:</span>
+            </div>
+            <div class="text-sm font-bold text-white mt-1" id="pass-slot-time">Today, 11:00 AM</div>
+            <div class="text-[11px] text-zinc-300 mt-0.5">
+              📍 <strong>Reporting Requirement:</strong> Please reach the salon by <strong class="text-amber-300" id="pass-reporting-time">10:50 AM</strong> (10 mins prior buffer).
+            </div>
+          </div>
+
+          <div class="border-t border-white/10 pt-3 text-xs space-y-1">
+            <div class="flex justify-between text-zinc-300">
+              <span>Treatments:</span>
+              <span class="font-semibold text-white" id="pass-services">Haircut, Beard Smooth</span>
+            </div>
+            <div class="flex justify-between text-zinc-300">
+              <span>Assigned Stylist:</span>
+              <span class="font-semibold text-amber-400" id="pass-stylist">Amit (Master Stylist)</span>
+            </div>
+            <div class="flex justify-between text-zinc-300">
+              <span>Total Price:</span>
+              <span class="font-mono font-bold text-white">₹<span id="pass-total">430</span></span>
+            </div>
+          </div>
+
+          <!-- Footer of pass -->
+          <div class="border-t border-white/10 pt-2 text-[10px] text-zinc-400 flex justify-between items-center">
+            <span>Location: 12 Main Market Road</span>
+            <span class="text-emerald-400 font-mono">Dev: Amit (8930440260)</span>
+          </div>
+        </div>
+
+        <!-- Pass Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs transition flex items-center gap-2">
+            <i class="fa-solid fa-print"></i>
+            <span>Print Pass / Save PDF</span>
+          </button>
+          <a id="whatsapp-share-btn" href="#" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs transition flex items-center gap-2 shadow-lg">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span>Send to WhatsApp</span>
+          </a>
+          <button onclick="closeBookingModal()" class="px-5 py-2.5 rounded-xl themed-primary-bg text-black font-bold text-xs">
+            Done
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== WRITE REVIEW MODAL ==================== -->
+  <div id="review-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="themed-card border rounded-2xl max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeReviewModal()" class="absolute top-4 right-4 w-7 h-7 rounded-full bg-white/10 text-zinc-300 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-xs"></i>
+      </button>
+
+      <div class="border-b border-white/10 pb-3 mb-4">
+        <h3 class="font-display font-bold text-lg text-white">Rate Your Experience</h3>
+        <p class="text-xs text-zinc-400">Share your salon haircut, smoothing, or keratin feedback.</p>
+      </div>
+
+      <form id="review-form" onsubmit="submitReview(event)" class="space-y-4 text-xs">
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Your Rating *</label>
+          <div class="flex gap-2 text-2xl text-zinc-600" id="star-picker">
+            <button type="button" onclick="setPickerRating(1)" class="star-btn hover:text-amber-400 transition">★</button>
+            <button type="button" onclick="setPickerRating(2)" class="star-btn hover:text-amber-400 transition">★</button>
+            <button type="button" onclick="setPickerRating(3)" class="star-btn hover:text-amber-400 transition">★</button>
+            <button type="button" onclick="setPickerRating(4)" class="star-btn hover:text-amber-400 transition">★</button>
+            <button type="button" onclick="setPickerRating(5)" class="star-btn text-amber-400 transition">★</button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Your Name *</label>
+          <input type="text" id="rev-name" required value="Amit" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Service Received *</label>
+          <select id="rev-service" class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-400">
+            <option>Hair Cut & Beard Smoothing</option>
+            <option>Keratin Protein Treatment</option>
+            <option>Royal Beard Styling</option>
+            <option>Deep Hair Spa & Scalp Detox</option>
+            <option>Charcoal D-Tan Facial</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-zinc-300 font-semibold mb-1">Customer Review Feedback *</label>
+          <textarea id="rev-text" required rows="3" placeholder="Tell us how your hair cut or beard smoothing turned out..." class="w-full bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-amber-400">Master Amit gave the cleanest skin fade and the beard smoothing makes my beard super soft! Zero waiting time.</textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl themed-primary-bg text-black font-extrabold text-xs uppercase tracking-wider hover:opacity-95 transition shadow-lg">
+          Post Review
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT APPLICATION LOGIC -->
+  <script>
+    // 1. SERVICES DATA CATALOG
+    const servicesData = [
+      { id: 'hair-1', cat: 'hair', name: 'Signature Fade & Scissor Cut', duration: 30, price: 250, desc: 'Precision low/mid/high fade, texturizing, hair wash, and blow dry styling.', icon: '✂️' },
+      { id: 'hair-2', cat: 'hair', name: 'Executive Haircut + Hot Towel', duration: 45, price: 399, desc: 'Master haircut with rejuvenating eucalyptus steam towel and neck massage.', icon: '💈' },
+      { id: 'hair-3', cat: 'hair', name: 'Kids / Classic Scissor Cut', duration: 25, price: 199, desc: 'Gentle, modern scissor cut tailored for children and classic gentlemen.', icon: '🧒' },
+      
+      { id: 'beard-1', cat: 'beard', name: 'Beard Smoothing & Argan Spa', duration: 30, price: 350, desc: 'Steam softening, deep conditioning argan mask, straightening, and beard balm.', icon: '🧔' },
+      { id: 'beard-2', cat: 'beard', name: 'Royal Beard Sculpt & Razor Lineup', duration: 20, price: 180, desc: 'Crisp razor cheek line, neck trimming, and beard mustache styling.', icon: '🪒' },
+      { id: 'beard-3', cat: 'beard', name: 'Charcoal Beard Wash + Treatment', duration: 25, price: 299, desc: 'Deep follicle detox for rough beards, anti-frizz serum, and smoothing.', icon: '✨' },
+
+      { id: 'keratin-1', cat: 'keratin', name: 'Keratin Protein Smoothing Treatment', duration: 75, price: 1499, desc: 'Formaldehyde-free salon keratin infusion. Eliminates 95% frizz and leaves hair silky smooth for months.', icon: '✨' },
+      { id: 'keratin-2', cat: 'keratin', name: 'Botox Hair Repair & Anti-Breakage', duration: 90, price: 1999, desc: 'Intense collagen and protein treatment to restore damaged hair strands.', icon: '🧪' },
+      { id: 'keratin-3', cat: 'keratin', name: 'Deep Nourishing Hair Spa & Detox', duration: 40, price: 699, desc: 'Scalp massage, herbal steam infusion, and deep roots nourishing cream.', icon: '💆' },
+
+      { id: 'facial-1', cat: 'facial', name: 'O3+ D-Tan Face Cleansing', duration: 30, price: 450, desc: 'Instant sun tan removal, dead skin exfoliation, and cooling face mask.', icon: '🧖' },
+      { id: 'facial-2', cat: 'facial', name: 'Activated Charcoal Deep Pore Facial', duration: 45, price: 799, desc: 'Removes blackheads, cleanses pollution toxins, and restores skin glow.', icon: '🌿' }
+    ];
+
+    // 2. INITIAL REVIEWS DATA
+    let reviewsData = [
+      { id: 1, name: 'Amit (Developer)', service: 'Signature Haircut & Beard Smoothing', rating: 5, date: 'Yesterday', text: 'Top-notch salon experience! Master Amit crafted an immaculate taper fade and the beard smoothing balm gave a premium soft feel. Zero waiting with exact reporting time!' },
+      { id: 2, name: 'Vikram Sharma', service: 'Keratin Protein Smoothing Treatment', rating: 5, date: '3 days ago', text: 'Got my keratin treatment done here. My frizzy hair is completely silky and manageable now. Best salon in the city, and payment via Google Pay UPI was instant.' },
+      { id: 3, name: 'Rohit Verma', service: 'Executive Haircut + Hot Towel', rating: 5, date: '1 week ago', text: 'The hot towel eucalyptus massage after the haircut is heavenly. Highly recommend choosing Amit as the stylist.' },
+      { id: 4, name: 'Karan Mehra', service: 'Royal Beard Sculpt & Razor Lineup', rating: 5, date: '2 weeks ago', text: 'Cleanest beard shape I have ever had. The appointment system gave exact 10-minute reporting time so I walked right to the chair.' }
+    ];
+
+    // State Variables
+    let selectedServices = new Set(['hair-1', 'beard-1']); // default pre-selected
+    let selectedDate = 'Today';
+    let selectedSlot = '11:00 AM';
+    let selectedStylistName = 'Amit (Master Stylist)';
+    let selectedPayment = 'online';
+    let onlineSubtab = 'upi';
+    let userReviewRating = 5;
+
+    // Time slots options
+    const slotTimes = [
+      '09:30 AM', '10:15 AM', '11:00 AM', '11:45 AM',
+      '01:00 PM', '02:00 PM', '03:15 PM', '04:30 PM',
+      '05:45 PM', '06:30 PM', '07:15 PM', '08:00 PM'
+    ];
+
+    // Render Services on Page Load
+    function renderServices(filter = 'all') {
+      const container = document.getElementById('services-grid');
+      container.innerHTML = '';
+
+      const filtered = filter === 'all' ? servicesData : servicesData.filter(s => s.cat === filter);
+
+      filtered.forEach(s => {
+        const isSelected = selectedServices.has(s.id);
+        const card = document.createElement('div');
+        card.className = `themed-card border rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 hover:-translate-y-1 shadow-md ${isSelected ? 'border-amber-400/80 bg-white/5' : ''}`;
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-start justify-between">
+              <span class="text-3xl">${s.icon}</span>
+              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-full themed-primary-bg text-black">
+                ₹${s.price}
+              </span>
+            </div>
+            <div>
+              <h3 class="font-bold text-white text-base">${s.name}</h3>
+              <p class="text-xs text-zinc-400 mt-1 leading-relaxed">${s.desc}</p>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/10 mt-4 flex items-center justify-between text-xs">
+            <span class="text-zinc-400 font-mono"><i class="fa-regular fa-clock text-amber-400 mr-1"></i>${s.duration} mins</span>
+            <button onclick="toggleServiceSelection('${s.id}')" class="px-3.5 py-1.5 rounded-xl font-bold transition flex items-center gap-1.5 ${isSelected ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50' : 'bg-white/10 hover:bg-white/20 text-white'}">
+              <i class="fa-solid ${isSelected ? 'fa-check' : 'fa-plus'}"></i>
+              <span>${isSelected ? 'Added' : 'Add to Book'}</span>
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterServices(category) {
+      document.querySelectorAll('.service-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-white/10', 'text-white', 'border-white/20');
+        btn.classList.add('bg-white/5', 'text-zinc-400', 'border-transparent');
+      });
+      event.target.classList.add('bg-white/10', 'text-white', 'border-white/20');
+      renderServices(category);
+    }
+
+    function toggleServiceSelection(id) {
+      if (selectedServices.has(id)) {
+        selectedServices.delete(id);
+      } else {
+        selectedServices.add(id);
+      }
+      renderServices();
+      updateModalSummary();
+    }
+
+    function toggleHeroService(key, price, name, btn) {
+      btn.classList.toggle('border-amber-400');
+      btn.classList.toggle('bg-amber-400/10');
+      // map to service id
+      const map = { haircut: 'hair-1', beard: 'beard-1', keratin: 'keratin-1', spa: 'keratin-3' };
+      const sId = map[key];
+      if (selectedServices.has(sId)) {
+        selectedServices.delete(sId);
+      } else {
+        selectedServices.add(sId);
+      }
+      renderServices();
+      updateModalSummary();
+    }
+
+    function startBookingWithSelected() {
+      openBookingModal();
+      goToStep(1);
+    }
+
+    // Modal Service Picker
+    function renderModalServicePicker() {
+      const container = document.getElementById('modal-service-picker');
+      container.innerHTML = '';
+      servicesData.forEach(s => {
+        const isChecked = selectedServices.has(s.id);
+        const item = document.createElement('div');
+        item.onclick = () => { toggleServiceSelection(s.id); renderModalServicePicker(); };
+        item.className = `p-3 rounded-xl border text-xs cursor-pointer flex items-center justify-between transition ${isChecked ? 'border-amber-400 bg-amber-400/10 text-white' : 'border-white/10 bg-white/5 text-zinc-300 hover:border-white/20'}`;
+        item.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-amber-400 pointer-events-none">
+            <div>
+              <div class="font-bold text-white">${s.name}</div>
+              <div class="text-[10px] text-zinc-400">${s.duration} mins</div>
+            </div>
+          </div>
+          <span class="font-mono font-bold text-amber-400">₹${s.price}</span>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function updateModalSummary() {
+      let count = selectedServices.size;
+      let totalDuration = 0;
+      let totalPrice = 0;
+
+      servicesData.forEach(s => {
+        if (selectedServices.has(s.id)) {
+          totalDuration += s.duration;
+          totalPrice += s.price;
+        }
+      });
+
+      document.getElementById('modal-selected-count').innerText = `${count} service${count === 1 ? '' : 's'}`;
+      document.getElementById('modal-total-duration').innerText = totalDuration;
+      document.getElementById('modal-total-price').innerText = totalPrice;
+      document.getElementById('quick-duration').innerText = totalDuration || 30;
+
+      const btn = document.getElementById('btn-to-step-2');
+      if (btn) btn.disabled = count === 0;
+
+      document.getElementById('recap-total').innerText = totalPrice;
+      document.getElementById('offline-total-display').innerText = totalPrice;
+      document.getElementById('pass-total').innerText = totalPrice;
+
+      // Update recap text
+      const names = [];
+      servicesData.forEach(s => { if (selectedServices.has(s.id)) names.push(s.name); });
+      const str = names.join(', ') || 'None';
+      document.getElementById('recap-services').innerText = str;
+      document.getElementById('pass-services').innerText = str;
+    }
+
+    // Modal Navigation
+    function openBookingModal() {
+      document.getElementById('booking-modal').classList.remove('hidden');
+      document.getElementById('booking-modal').classList.add('flex');
+      renderModalServicePicker();
+      updateModalSummary();
+      initDatesAndSlots();
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+      document.getElementById('booking-modal').classList.remove('flex');
+    }
+
+    function goToStep(step) {
+      document.getElementById('current-step-num').innerText = step;
+      ['step-1-services', 'step-2-time', 'step-3-customer', 'step-4-payment', 'step-5-pass'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+
+      if (step === 1) {
+        document.getElementById('step-1-services').classList.remove('hidden');
+        document.getElementById('step-title').innerText = 'Choose Your Treatments';
+        document.getElementById('step-desc').innerText = 'Select one or more services to calculate total time and price.';
+      } else if (step === 2) {
+        document.getElementById('step-2-time').classList.remove('hidden');
+        document.getElementById('step-title').innerText = 'Select Date & Available Time Slot';
+        document.getElementById('step-desc').innerText = 'Live calendar gives exact arrival time details for zero wait.';
+        updateArrivalDetailsReadout();
+      } else if (step === 3) {
+        document.getElementById('step-3-customer').classList.remove('hidden');
+        document.getElementById('step-title').innerText = 'Customer Contact Details';
+        document.getElementById('step-desc').innerText = 'Pre-filled with default Amit profile for instant confirmation.';
+      } else if (step === 4) {
+        document.getElementById('step-4-payment').classList.remove('hidden');
+        document.getElementById('step-title').innerText = 'Choose Payment Option';
+        document.getElementById('step-desc').innerText = 'Online (All platforms UPI/Cards) or Offline Cash at Salon.';
+        
+        // Populate recap
+        document.getElementById('recap-name').innerText = document.getElementById('cust-name').value || 'Amit';
+        document.getElementById('recap-phone').innerText = document.getElementById('cust-phone').value || '8930440260';
+        document.getElementById('recap-slot').innerText = `${selectedDate}, ${selectedSlot}`;
+        renderQRCode();
+      } else if (step === 5) {
+        document.getElementById('step-5-pass').classList.remove('hidden');
+        document.getElementById('step-title').innerText = 'Confirmed Pass';
+        document.getElementById('step-desc').innerText = 'Show this at the salon counter when arriving.';
+      }
+    }
+
+    // Dates and Slots
+    function initDatesAndSlots() {
+      // Date buttons
+      const dateContainer = document.getElementById('date-buttons-container');
+      dateContainer.innerHTML = '';
+      const dates = [
+        { label: 'Today', sub: 'Nov 17' },
+        { label: 'Tomorrow', sub: 'Nov 18' },
+        { label: 'Wednesday', sub: 'Nov 19' }
+      ];
+
+      dates.forEach(d => {
+        const isSelected = selectedDate === d.label;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { selectedDate = d.label; initDatesAndSlots(); updateArrivalDetailsReadout(); };
+        btn.className = `p-2.5 rounded-xl border text-center transition ${isSelected ? 'border-amber-400 bg-amber-400/20 text-white' : 'border-white/10 bg-white/5 text-zinc-300 hover:border-white/20'}`;
+        btn.innerHTML = `<div class="font-bold text-xs">${d.label}</div><div class="text-[10px] text-zinc-400">${d.sub}</div>`;
+        dateContainer.appendChild(btn);
+      });
+
+      // Time slots
+      const slotContainer = document.getElementById('time-slots-container');
+      slotContainer.innerHTML = '';
+      slotTimes.forEach(t => {
+        const isSelected = selectedSlot === t;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => { selectedSlot = t; initDatesAndSlots(); updateArrivalDetailsReadout(); };
+        btn.className = `py-2 px-1 rounded-xl border text-center text-xs font-semibold transition ${isSelected ? 'themed-primary-bg text-black font-extrabold shadow-md' : 'bg-white/5 border-white/10 text-zinc-300 hover:border-white/20'}`;
+        btn.innerText = t;
+        slotContainer.appendChild(btn);
+      });
+    }
+
+    function selectStylist(name, btn) {
+      selectedStylistName = name;
+      document.querySelectorAll('.stylist-btn').forEach(b => {
+        b.className = 'stylist-btn p-2 rounded-xl bg-white/5 border border-white/10 text-white text-center transition';
+      });
+      btn.className = 'stylist-btn p-2 rounded-xl bg-white/5 border border-amber-500/50 text-white text-center transition bg-amber-500/10';
+    }
+
+    function calculateBufferTime(timeStr) {
+      // e.g. "11:00 AM" -> arrive by 10:50 AM
+      const [time, modifier] = timeStr.split(' ');
+      let [hours, minutes] = time.split(':').map(Number);
+      minutes -= 10;
+      if (minutes < 0) {
+        minutes += 60;
+        hours -= 1;
+        if (hours === 0) hours = 12;
+      }
+      const minFormatted = minutes < 10 ? '0' + minutes : minutes;
+      return `${hours}:${minFormatted} ${modifier}`;
+    }
+
+    function updateArrivalDetailsReadout() {
+      const buffer = calculateBufferTime(selectedSlot);
+      document.getElementById('arrival-details-readout').innerHTML = `
+        Your Chosen Slot: <strong>${selectedDate} at ${selectedSlot}</strong>.<br>
+        Exact Reporting Time: Reach salon by <strong class="text-amber-300">${buffer} sharp</strong> (10 mins prior buffer).
+      `;
+    }
+
+    // Payment Selection
+    function selectPaymentMethod(mode) {
+      selectedPayment = mode;
+      const onlineTab = document.getElementById('pay-tab-online');
+      const offlineTab = document.getElementById('pay-tab-offline');
+      const onlinePanel = document.getElementById('online-platforms-container');
+      const offlinePanel = document.getElementById('offline-details-container');
+      const btnText = document.getElementById('finalize-btn-text');
+
+      if (mode === 'online') {
+        onlineTab.className = "p-3 rounded-xl border border-amber-500/60 bg-amber-500/10 text-left transition flex items-start gap-3";
+        offlineTab.className = "p-3 rounded-xl border border-white/10 bg-white/5 text-left transition flex items-start gap-3";
+        onlinePanel.classList.remove('hidden');
+        offlinePanel.classList.add('hidden');
+        btnText.innerText = 'Pay Online & Confirm Booking';
+      } else {
+        onlineTab.className = "p-3 rounded-xl border border-white/10 bg-white/5 text-left transition flex items-start gap-3";
+        offlineTab.className = "p-3 rounded-xl border border-blue-500/60 bg-blue-500/10 text-left transition flex items-start gap-3";
+        onlinePanel.classList.add('hidden');
+        offlinePanel.classList.remove('hidden');
+        btnText.innerText = 'Confirm Booking (Pay Cash at Salon)';
+      }
+    }
+
+    function setOnlineSubtab(tab) {
+      onlineSubtab = tab;
+      ['upi', 'card', 'net'].forEach(t => {
+        const btn = document.getElementById(`subtab-${t}`);
+        const panel = document.getElementById(`panel-${t}`);
+        if (t === tab) {
+          btn.className = "px-3 py-1.5 rounded-lg bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[11px] font-semibold";
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = "px-3 py-1.5 rounded-lg bg-white/5 text-zinc-400 text-[11px] font-semibold hover:text-white";
+          panel.classList.add('hidden');
+        }
+      });
+    }
+
+    function renderQRCode() {
+      const qrEl = document.getElementById('qrcode');
+      qrEl.innerHTML = '';
+      const total = document.getElementById('recap-total').innerText || '430';
+      const upiUrl = `upi://pay?pa=8930440260@upi&pn=AmitSalon&am=${total}&cu=INR&tn=SalonBooking`;
+      new QRCode(qrEl, {
+        text: upiUrl,
+        width: 96,
+        height: 96,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.M
+      });
+    }
+
+    function simulateOnlineApp(appName) {
+      alert(`⚡ Redirecting to ${appName} (UPI ID: 8930440260@upi). Payment simulation verified.`);
+    }
+
+    function confirmAndFinalizeBooking() {
+      const name = document.getElementById('cust-name').value || 'Amit';
+      const phone = document.getElementById('cust-phone').value || '8930440260';
+      const buffer = calculateBufferTime(selectedSlot);
+      const randomId = '#AMIT-' + Math.floor(1000 + Math.random() * 9000);
+
+      document.getElementById('pass-id').innerText = randomId;
+      document.getElementById('pass-name').innerText = name;
+      document.getElementById('pass-phone').innerText = phone;
+      document.getElementById('pass-slot-time').innerText = `${selectedDate}, ${selectedSlot}`;
+      document.getElementById('pass-reporting-time').innerText = `${buffer} (10 mins prior)`;
+      document.getElementById('pass-stylist').innerText = selectedStylistName;
+
+      const badge = document.getElementById('pass-payment-status');
+      if (selectedPayment === 'online') {
+        badge.className = "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+        badge.innerText = 'ONLINE PAID (VERIFIED)';
+      } else {
+        badge.className = "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-blue-500/20 text-blue-300 border border-blue-500/40";
+        badge.innerText = 'PAY ON ARRIVAL (CASH/CARD)';
+      }
+
+      // Prepare WhatsApp link
+      const waText = encodeURIComponent(`Hello Amit Salon, I have booked an appointment!\nBooking ID: ${randomId}\nName: ${name}\nSlot: ${selectedDate} at ${selectedSlot}\nReporting: ${buffer}\nTotal: ₹${document.getElementById('recap-total').innerText}\nPayment: ${selectedPayment.toUpperCase()}`);
+      document.getElementById('whatsapp-share-btn').href = `https://wa.me/918930440260?text=${waText}`;
+
+      goToStep(5);
+    }
+
+    // 3. REVIEWS LOGIC
+    function renderReviews() {
+      const container = document.getElementById('reviews-list-container');
+      container.innerHTML = '';
+
+      let totalStars = 0;
+      reviewsData.forEach(r => {
+        totalStars += r.rating;
+        const item = document.createElement('div');
+        item.className = "themed-card border rounded-xl p-4 space-y-2 text-xs";
+        
+        let starsStr = '';
+        for (let i = 0; i < r.rating; i++) starsStr += '★ ';
+
+        item.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full themed-primary-bg text-black font-bold flex items-center justify-center text-xs">
+                ${r.name.charAt(0)}
+              </div>
+              <div>
+                <span class="font-bold text-white text-xs">${r.name}</span>
+                <span class="text-[10px] text-emerald-400 ml-1.5 font-medium"><i class="fa-solid fa-circle-check"></i> Verified Client</span>
+              </div>
+            </div>
+            <span class="text-[11px] text-zinc-400 font-mono">${r.date}</span>
+          </div>
+          <div class="flex items-center gap-2 text-amber-400 text-sm">
+            <span>${starsStr}</span>
+            <span class="text-[10px] text-zinc-400 bg-white/5 px-2 py-0.5 rounded-full border border-white/10 font-sans">${r.service}</span>
+          </div>
+          <p class="text-zinc-300 text-[11px] leading-relaxed">${r.text}</p>
+        `;
+        container.appendChild(item);
+      });
+
+      const avg = (totalStars / reviewsData.length).toFixed(1);
+      document.getElementById('display-avg-rating').innerText = avg;
+      document.getElementById('display-review-count').innerText = reviewsData.length;
+    }
+
+    function openReviewModal() {
+      document.getElementById('review-modal').classList.remove('hidden');
+      document.getElementById('review-modal').classList.add('flex');
+    }
+
+    function closeReviewModal() {
+      document.getElementById('review-modal').classList.add('hidden');
+      document.getElementById('review-modal').classList.remove('flex');
+    }
+
+    function setPickerRating(stars) {
+      userReviewRating = stars;
+      const btns = document.querySelectorAll('#star-picker .star-btn');
+      btns.forEach((b, idx) => {
+        if (idx < stars) {
+          b.className = 'star-btn text-amber-400 transition';
+        } else {
+          b.className = 'star-btn text-zinc-600 hover:text-amber-400 transition';
+        }
+      });
+    }
+
+    function submitReview(e) {
+      e.preventDefault();
+      const name = document.getElementById('rev-name').value;
+      const service = document.getElementById('rev-service').value;
+      const text = document.getElementById('rev-text').value;
+
+      reviewsData.unshift({
+        id: Date.now(),
+        name: name,
+        service: service,
+        rating: userReviewRating,
+        date: 'Just now',
+        text: text
+      });
+
+      renderReviews();
+      closeReviewModal();
+      alert('⭐ Thank you! Your review has been published.');
+    }
+
+    // 4. THEME CONTROLLER
+    function setGlobalTheme(theme) {
+      document.body.classList.remove('theme-cyber', 'theme-spa');
+      ['royal', 'cyber', 'spa'].forEach(t => {
+        const btn = document.getElementById(`theme-btn-${t}`);
+        if (btn) {
+          btn.className = "px-2.5 py-1 rounded-lg font-medium transition text-zinc-400 hover:text-white";
+        }
+      });
+
+      const activeBtn = document.getElementById(`theme-btn-${theme}`);
+
+      if (theme === 'cyber') {
+        document.body.classList.add('theme-cyber');
+        if (activeBtn) activeBtn.className = "px-2.5 py-1 rounded-lg font-medium transition text-cyan-300 bg-cyan-400/20 border border-cyan-400/40";
+      } else if (theme === 'spa') {
+        document.body.classList.add('theme-spa');
+        if (activeBtn) activeBtn.className = "px-2.5 py-1 rounded-lg font-medium transition text-emerald-300 bg-emerald-400/20 border border-emerald-400/40";
+      } else {
+        if (activeBtn) activeBtn.className = "px-2.5 py-1 rounded-lg font-medium transition text-amber-400 bg-amber-400/20 border border-amber-400/40";
+      }
+    }
+
+    // Initial run
+    window.addEventListener('DOMContentLoaded', () => {
+      renderServices();
+      renderReviews();
+      initDatesAndSlots();
+    });
+  </script>
+</body>
+</html>
